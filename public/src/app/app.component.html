@@ -1,0 +1,78 @@
+<div style="text-align:center">
+<div class="root">  <!-- tip: use css to place a border around your different components to better visualize them -->
+    <!-- <h1>Welcome to {{ title }}!</h1> -->
+<app-task></app-task>     <!-- use the selector of the task component to nest it within the root component -->
+</div>
+
+
+<h1>Restful Tasks API</h1>  <br>
+<!-- <div *ngFor="let task of tasks"> -->
+    <!-- <p>{{task.title}}</p> -->
+    <!-- <button (click)="showData(task)">Show</button>   -->
+    <!-- In this example, the taskToShow method is saving the selected task as selectedTask -->
+<!-- </div> -->
+<!-- Nest the task component and bind its taskToShow to the selectedTask in the root component  -->
+<!-- <app-task *ngIf="show" [task]="show"></app-task> -->
+
+
+  <!-- <h1>Welcome to the Restful Tasks API</h1> <br>
+  <h1> List of all the tasks:</h1>
+  <ul *ngFor="let task of tasks">
+  <li>{{task}}</li>
+  </ul>
+<h1>The third task: </h1>
+<li>{{tasks[2]}}</li> -->
+
+  <!-- <button (click)="onButtonClick()">Click me!</button> -->
+
+<br> <button (click)="getAllTasks()">GET ALL TASKS</button>
+  <br><br> 
+
+  <!-- //this GETS ALL TASKS -->
+  <!-- <div *ngFor="let task of tasks" >
+  <p *ngIf="task.title">
+    Title: {{task.title}}  -->
+    
+    
+    <!-- <button (click)="showData(task)">Button Click 2 ! </button>
+    <p *ngIf="show">
+      Title: {{show.title}} ,Description: {{show.description}} </p>
+      
+      
+      <div *ngFor="let x of task" >
+      <p *ngIf="x">{{x.title}} - {{x.description}}</p> --> 
+
+</div>
+
+<p> Add A New Task: </p>
+<form (submit)="onSubmitAdd()">
+  <!-- <p> {{tasks | json}} </p> -->
+  <!-- <p> {{ newTask | json }} </p> <br> -->
+  Title: <input type="text" name="newTask.title" [(ngModel)] = "newTask.title" /> <br>
+  Description: <input type="text" name="newTask.description" [(ngModel)] = "newTask.description" /> <br>
+  <input type="submit" value="Create" />
+</form> 
+<br><br>
+
+
+  <div *ngFor="let task of tasks">
+    <p>{{task.title}} </p>
+    <button (click)="getOneTask(task)">Edit</button>
+    <button (click)="showData(task)">Show</button>
+    <button (click)="removeTask(task._id)">Delete</button> 
+  </div>
+
+  <div *ngIf="show">
+      <h3>Title: {{show.title}}</h3>
+      <h3>Description: {{show.description}}</h3>
+      <!-- <h3>Completed: {{show.completed}}</h3> -->
+  </div>
+    
+<p *ngIf="loadEdit==true"> Edit A Task </p>
+    <form *ngIf="loadEdit==true" (submit)="onSubmitEdit()">
+    <input type = "hidden" value= "editTask._id">
+      Title: <input type="text" name="editTask.title" [(ngModel)]="editTask.title"/> <br>
+      Description: <input type="text" name="editTask.description" [(ngModel)]="editTask.description"/> <br> 
+      <input type="submit" value="submit"/>
+    </form>
+
